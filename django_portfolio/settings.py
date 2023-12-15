@@ -97,16 +97,28 @@ WSGI_APPLICATION = "django_portfolio.wsgi.application"
 
 DATABASES = {
     "default": 
-        dj_database_url.config(
-        # Feel free to alter this value to suit your needs.
-        default='postgresql://postgres:postgres@localhost:5432/mysite',
-        conn_max_age=600
-    )
+        dj_database_url.parse(os.environ.get('DATABASE_URL')),
+    #     dj_database_url.config(
+    #     # Feel free to alter this value to suit your needs.
+    #     default='postgresql://postgres:postgres@localhost:5432/mysite',
+    #     conn_max_age=600
+    # )
         # {
         # "ENGINE": "django.db.backends.sqlite3",
         # "NAME": BASE_DIR / "db.sqlite3",  
         # }  
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': '',
+#         'USER': '',
+#         'PASSWORD': '',
+#         'PORT' : '5432',
+#         'HOST' : 'localhost',
+#     }
+# }
 
 
 # Password validation
