@@ -91,26 +91,14 @@ WSGI_APPLICATION = "django_portfolio.wsgi.application"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    "default": {
+    "default": 
         dj_database_url.config(
         # Feel free to alter this value to suit your needs.
         default='postgresql://postgres:postgres@localhost:5432/mysite',
         conn_max_age=600
     )
         # "ENGINE": "django.db.backends.sqlite3",
-        # "NAME": BASE_DIR / "db.sqlite3",
-        
-    }
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'db.portfolio_postgresql',
-#         'USER': 'usuario',
-#         'PASSWORD': 'contraseña',
-#         'HOST': 'localhost',
-#         'PORT': '5432',
-#     }
-# }
+        # "NAME": BASE_DIR / "db.sqlite3",    
 }
 
 
