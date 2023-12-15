@@ -1,0 +1,86 @@
+{% extends 'layout1.html' %}
+
+{% block content1 %}
+
+{% load static %}
+<header class="textv">
+  <h1>SYNCHRONIZED PARALLELISM</h1>
+  <p>The self is the convergence of multiple random facets.</p>
+</header>
+
+
+<div class="row d-flex my-1 text-center tag" style="margin-top:0;">
+  {% for post in Posts%}
+  <div class="carousel-inner tag" style="display:contents;">
+    <a type="submit" href="{% url 'blog:post_detail' post.id %}" data-modal-target="#modalDisplay{{ forloop.counter }}" style="text-decoration: none;color: #000;"
+      class="carousel-item {% if forloop.first %}active{% endif %}">
+      <div class="card card-project textg" style="margin: 0 5px 10px;
+          background-color: #5700FF;border-radius: 0em;">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="img-wrapper"
+          style="min-height: 600px;position: relative;">
+          <defs style="margin: 0;">
+            <filter id="XFmznQhx9lM_1" class="jsx-715889512" style="margin: 0;">
+              <feColorMatrix type="matrix"
+                values="0.31640625 0 0 0 0.33984375 0.99609375 0 0 0 0 -0.99609375 0 0 0 0.99609375 0 0 0 1 0"
+                color-interpolation-filters="sRGB" class="jsx-715889512"></feColorMatrix>
+            </filter>
+          </defs>
+          <image href="{{post.image.url}}" alt="" class="jsx-715889512 imagen-filtrada" loading="lazy"
+            style="transform: translate(-20%, 0%);"></image>
+        </svg>
+        <div class="carousel-caption">
+          <!-- <div class="line-container"> -->
+            <h3>{{post.title}}</h3>
+            <!-- <input class="expand-btn" type="checkbox" data-index="{{ forloop.counter0 }}">
+          </div> -->
+          <p class="cutoff-textd">{{post.semidescription}}</p>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <div id="modalDisplay{{ forloop.counter }}" style="visibility: hidden;display: none;">
+    <div class="text-center">
+      <div class="textv">
+        <h1>{{post.title}}</h1>
+      </div>
+      <div class="textv">
+        <h2 class="my-2 h5 text-muted">{{post.date|date:'F jS Y'}}</h2>
+      </div>
+      <img src="{{post.image.url}}" alt="{{post.title}}" class="img-fluid">
+      <div class="my-4 textv">
+        {{post.description}}
+      </div>
+    </div>
+  </div>
+
+
+  {% endfor %}
+</div>
+
+
+<!-- Modal para mostrar los detalles del post -->
+<div class="modal fade" id="postDetailModal" tabindex="-1" role="dialog" aria-labelledby="postDetailModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content" style="border-radius: 0;">
+      <div class="modal-body">
+        <!-- Contenido del post se cargará aquí dinámicamente -->
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button type="button" class="btnretro my-3 btn-lg rounded-0" id="prevModalBtn"><strong>&larr;</strong></button>
+          <img src="{% static 'portfolio/JV01.gif'%}" alt="GIF animado" width="10%" loading="lazy">
+        <button type="button" class="btnretro my-3 btn-lg rounded-0" id="nextModalBtn"><strong>&rarr;</strong></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'postseffects.js' %}"></script>  
+<script src="{% static 'modalview.js' %}"></script> 
+
+<div id="gif-url" style="display: flex; justify-content: center; align-items: center; display: none;">
+  {% block gif_url %}{% static 'portfolio/BBC02.gif' %}{% endblock %}
+</div>
+
+{% endblock %}

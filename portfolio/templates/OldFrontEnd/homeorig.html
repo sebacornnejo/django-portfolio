@@ -1,0 +1,203 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<header class="row tag" style="margin-top: -4px  !important;">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="col-md-4">
+        <defs>
+            <filter id="XFmznQhx9lM_1" class="jsx-715889512">
+                <feColorMatrix type="matrix"
+                    values="0.31640625 0 0 0 0.33984375 0.99609375 0 0 0 0 -0.99609375 0 0 0 0.99609375 0 0 0 1 0"
+                    color-interpolation-filters="sRGB" class="jsx-715889512"></feColorMatrix>
+            </filter>
+        </defs>
+        <image href="{% static 'portfolio/Avatar1.png'%}" alt="" class="jsx-715889512 imagen-filtrada" width="100%"
+            height="100%" loading="lazy"></image>
+    </svg>
+    <div class="col-md-8 my-auto p-2">
+        <h3 class="tag textg" style="margin-top: 70px  !important;">안녕하세요✌️</h3>
+        <div class="textg">
+            <h1><strong>Sebastián</strong> Welcome’s You!</h1>
+            <h6>I am a highly analytical and data-driven professional with a strong background coming academic and
+                business environments, dedicated to develop functional empirical research and creating graph visually
+                intuitive.</h6>
+            <h8 style="background-color: #000;">Explore my portfolio to see the power coupling of science and design in
+                action</h8>
+        </div>
+        <!-- <h3>Geophysicist and Data Scientist</h3>
+       <p>I am a highly analytical and data-driven professional with a strong background in oceanography and geophysics. With over 10 years of experience in both academic and corporate settings, I have played key roles in interpreting and analyzing complex data in the marine domain and ecosystem services. Concurrently, I have gained practical expertise in commercial and business fields, managing projects and contributing to specialized business and legislative research with data science, business intelligence and management</p>-->
+        <div class="tag d-flex justify-content">
+            <form class="p-3">
+                <div class="p-2 border backtxt" style="border-color: white;border-width: 2px !important;">
+                    <h3 class="card-title" style="margin-bottom:0;">08<span style="color: #a8ff00;">+</span></h3>
+                    <p class="card-text" style="font-size:10px;">Year of Experience</p>
+                </div>
+            </form>
+            <form style="margin-bottom: 55px  !important;" class="p-2" action="/portfolio/" method="get"
+                target="_blank">
+                <button type="submit" class="btnretro my-3 btn-lg rounded-0"><strong>View Portfolio
+                        &rarr;</strong></button>
+            </form>
+        </div>
+    </div>
+
+</header>
+
+<div class="tag" style="margin-top: 0px  !important;">
+    <div class="row justify-content-center my-3" style="margin-top: 100px  !important;">
+        <div class="text-center textg col-md-8">
+            <h3>Analytical & Creative Skills</h3>
+            <p style="margin-bottom:0;">As a holistic data scientist, I possess a diverse set of skills and expertise to
+                bring high-performance analyses tailored according to the tasks</p>
+        </div>
+    </div>
+
+    <div class="row my-1 text-center">
+        {% for Skill in Skill %}
+        <div class="tag col-md-4 p-2">
+            <div class="cardc cardc-project h-100 rounded-0 textg" style="background-color: #000;">
+                <img style="width:60px;" src="{{Skill.image.url}}" alt="" class="card-img-top mx-auto">
+                <div class="cardc-container" style="margin-bottom:0;">
+                    <h5 class="card-title" style="background-color: #5700FF;margin-bottom:1;">{{Skill.title}}</h5>
+                    <p class="card-text" style="font-size:13px; margin-top:1;">{{Skill.description}}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="tag" style="margin-top: 0px  !important;">
+    <div class="row justify-content-center my-3" style="margin-top: 100px  !important;">
+        <div class="text-center textg col-md-8">
+            <h3 style="margin-top:100;">Unlock the Power of Collaborative Expertise</h3>
+            <p style="margin-bottom:0;">When you choose to collaborate with me, you open the door to a realm of unique
+                advantages that go beyond traditional professional interactions. I don't just bring skills to the table;
+                I
+                bring an entire mindset, a commitment to excellence, and a passion for innovative problem-solving</p>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center my-1 text-center" style="margin-top:0;">
+        {% for Benefit in Benefit %}
+        <div class="tag col-md-4 p-2 tarjeta">
+            <div class="cardc cardc-project h-100 rounded-0 textg"
+                style="background-color: #000;margin: 0px !important;">
+                <div class="cardc-container"
+                    style="margin-bottom:0; height: 300px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <h5 class="card-title" style="margin-bottom:1;">{{Benefit.title}}</h5>
+                    <p class="card-text"
+                        style="background-color: #5700FF; color: white; font-size:14px; margin-top:1px; width: 386px; flex-grow: 1;">
+                        <span style="font-size:16px;color: #a8ff00;"
+                            class="blinking-cursor"><strong>&gt_</strong></span>{{Benefit.description}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+<div class="tag row justify-content-center" style="margin-top: 120px  !important;">
+    <div class="outer-eye" style="margin-top: -30px  !important;">
+        <div class="inner-eye"></div>
+    </div>
+    <div class="outer-eye outer-eye-2" style="margin-top: -30px  !important;">
+        <div class="inner-eye"></div>
+    </div>
+    <div class="typing-demo textg"
+        style="margin-left: 80px  !important;margin-bottom: 80px  !important;background-color: #000;">
+        Disentangling datasets to support you.
+    </div>
+</div>
+<div id="gif-url" style="display: flex; justify-content: center; align-items: center; display: none;">
+    {% block gif_url %}{% static 'portfolio/MSGW02.gif' %}{% endblock %}
+    <!-- <style>
+        @media (min-width: 100px) {
+          body {
+            background: url("{% static 'portfolio/MSGW02.gif'%}");
+            background-size: cover;
+            background-repeat: no-repeat;
+          }
+        }
+      </style> -->
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var typingDemo = document.querySelector('.typing-demo');
+
+        function isInViewport(element) {
+            var rect = element.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        function activateAnimation() {
+            if (isInViewport(typingDemo)) {
+                typingDemo.style.animationPlayState = 'running';
+                window.removeEventListener('scroll', activateAnimation); // Remueve el listener después de activar la animación
+            }
+        }
+
+        window.addEventListener('scroll', activateAnimation);
+    });
+
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const tarjetas = document.querySelectorAll('.tarjeta');
+
+        tarjetas.forEach(tarjeta => {
+            tarjeta.addEventListener('mouseenter', () => {
+                const cursor = tarjeta.querySelector('.blinking-cursor');
+                cursor.classList.add('blinking');
+            });
+
+            tarjeta.addEventListener('mouseleave', () => {
+                const cursor = tarjeta.querySelector('.blinking-cursor');
+                cursor.classList.remove('blinking');
+            });
+        });
+    });
+</script>
+
+<!--Advanced Lazy Loading-->
+<script>
+    // Selecciona todas las imágenes con la clase .lazy
+    var lazyImages = document.querySelectorAll('.imagen-filtrada');
+
+    var options = {
+        root: null, // el viewport
+        rootMargin: '0px',
+        threshold: 0.1 // 10% de la imagen debe estar visible para cargarla
+    };
+
+    var imageObserver = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                var lazyImage = entry.target;
+                lazyImage.src = lazyImage.dataset.src; // Cambia el src con el valor del atributo data-src
+                lazyImage.onload = function () {
+                    lazyImage.classList.add('loaded'); // Agrega una clase cuando la imagen está cargada (opcional)
+                };
+                imageObserver.unobserve(lazyImage); // Deja de observar la imagen una vez que se carga
+            }
+        });
+    }, options);
+
+    // Observa cada imagen con la clase .imagen-filtrada
+    lazyImages.forEach(function (image) {
+        imageObserver.observe(image);
+    });
+
+</script>
+
+{% endblock %}

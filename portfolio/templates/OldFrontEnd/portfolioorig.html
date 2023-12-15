@@ -1,0 +1,320 @@
+{% extends 'layout2_2.html' %}
+
+{% block content2 %}
+
+{% load static %}
+
+<header class="row tag">
+  <div
+    style="display: flex; justify-content: center; text-align: center;margin-bottom: -15px  !important; margin-left: 5.7%; margin-top: 30px;">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="tag">
+      <defs style="margin: 0;">
+        <filter id="XFmznQhx9lM_1" class="jsx-715889512" style="margin: 0;">
+          <feColorMatrix type="matrix"
+            values="0.31640625 0 0 0 0.33984375 0.99609375 0 0 0 0 -0.99609375 0 0 0 0.99609375 0 0 0 1 0"
+            color-interpolation-filters="sRGB" class="jsx-715889512"></feColorMatrix>
+        </filter>
+      </defs>
+      <image href="{% static 'portfolio/Avatar2.png'%}" alt="" class="jsx-715889512 imagen-filtrada" height="100%"
+        loading="lazy"></image>
+    </svg>
+  </div>
+  <div class="row justify-content-center my-4">
+    <div class="text-center">
+      <h3><span style="background-color: white;color: #5700FF;margin-left: 2%;">Exploring Expertise: A Glimpse into My
+          Portfolio</span></h3>
+      <p><span style="background-color: white;color: #5700FF;margin-left: 2%;">Here's what my work generates when
+          disentagling data</span></p>
+    </div>
+  </div>
+</header>
+
+<div class="row tag tarjeta" style="margin-top: 0px  !important;">
+  <h3><span style="color: #a8ff00;" class="blinking-cursor"><strong>&gt_</strong></span><span
+      class="textg">PEER-REVIEWED PUBLICATIONS</span></h3>
+  <div id="carouselControls1" class="carousel tag carousel-controls">
+    <div class="carousel-inner">
+      {% for Paper in Papers%}
+      <div class="carousel-item active">
+        <div class="card card-project textg" style="margin: 0 0.5em;
+            background-color: #5700FF;border-radius: 0em;">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="img-wrapper"
+            style="min-height: 600px;position: relative;">
+            <defs style="margin: 0;">
+              <filter id="XFmznQhx9lM_1" class="jsx-715889512" style="margin: 0;">
+                <feColorMatrix type="matrix"
+                  values="0.31640625 0 0 0 0.33984375 0.99609375 0 0 0 0 -0.99609375 0 0 0 0.99609375 0 0 0 1 0"
+                  color-interpolation-filters="sRGB" class="jsx-715889512"></feColorMatrix>
+              </filter>
+            </defs>
+            <image href="{{Paper.image.url}}" alt="" class="jsx-715889512 imagen-filtrada" loading="lazy"
+              style="transform: translate(-10%, 0%);"></image>
+          </svg>
+          <div class="carousel-caption">
+            <div class="line-container">
+              <h3 style="font-size: 20px;">{{Paper.title}}</h3>
+              <!-- <input class="expand-btn" type="checkbox" data-index="{{ forloop.counter0 }}"> -->
+            </div>
+            <p>{{Paper.description}}</p>
+            {% if Paper.url %}
+            <a type="submit" href="{{Project.url}}" target="_blank" class="btnretro btn-lg rounded-0"
+              style="text-decoration: none;"><strong>View
+                More &rarr;</strong></a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      <a type="submit" href="{% url 'portfolio_details' category='Papers' %}" class="carousel-item active" style="text-decoration: none;color: #000;">
+        <div class="card card-project textg" style="margin: 0 0.5em;
+            background-color: #5700FF;border-radius: 0em;">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="img-wrapper"
+            style="min-height: 600px;position: relative;">
+            <defs style="margin: 0;">
+              <filter id="XFmznQhx9lM_1" class="jsx-715889512" style="margin: 0;">
+                <feColorMatrix type="matrix"
+                  values="0.31640625 0 0 0 0.33984375 0.99609375 0 0 0 0 -0.99609375 0 0 0 0.99609375 0 0 0 1 0"
+                  color-interpolation-filters="sRGB" class="jsx-715889512"></feColorMatrix>
+              </filter>
+            </defs>
+            <image href="{% static 'portfolio/GS01.gif'%}" alt="" class="jsx-715889512 imagen-filtrada" loading="lazy"
+              style="transform: translate(-100%, 0%);"></image>
+          </svg>
+          <div class="carousel-caption" style="width: 90%;margin-left: -10%;">
+            <div class="line-container">
+              <h3 style="margin-top: 5%;">View More &rarr;</h3>
+              <!-- <input class="expand-btn" type="checkbox" data-index="{{ forloop.counter0 }}"> -->
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <button type="button" class="carousel-control-prev btnretroc my-3 btn-lg rounded-0"
+      data-bs-target="#carouselControls1" data-bs-slide="prev"><strong>&larr;</strong></button>
+    <button type="button" class="carousel-control-next btnretroc my-3 btn-lg rounded-0"
+      data-bs-target="#carouselControls1" data-bs-slide="next"><strong>&rarr;</strong></button>
+  </div>
+</div>
+
+<div class="row tag tarjeta" style="margin-top: 20px  !important;position: relative; z-index: 2;">
+  <h3><span style="color: #a8ff00;" class="blinking-cursor"><strong>&gt_</strong></span><span class="textg">GRAY
+      LITERATURE</span></h3>
+      <div id="carouselControls2" class="carousel tag carousel-controls">
+        <div class="carousel-inner">
+          {% for GrayLiterature in GrayLiteratures|slice:":5" %}
+          <div class="carousel-item active">
+            <div class="card card-project textg" style="margin: 0 0.5em;
+                background-color: #5700FF;border-radius: 0em;">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="img-wrapper"
+                style="min-height: 600px;position: relative;">
+                <defs style="margin: 0;">
+                  <filter id="XFmznQhx9lM_1" class="jsx-715889512" style="margin: 0;">
+                    <feColorMatrix type="matrix"
+                      values="0.31640625 0 0 0 0.33984375 0.99609375 0 0 0 0 -0.99609375 0 0 0 0.99609375 0 0 0 1 0"
+                      color-interpolation-filters="sRGB" class="jsx-715889512"></feColorMatrix>
+                  </filter>
+                </defs>
+                <image href="{{GrayLiterature.image.url}}" alt="" class="jsx-715889512 imagen-filtrada" loading="lazy"
+                  style="transform: translate(-24%, 0%);"></image>
+              </svg>
+              <div class="carousel-caption" style="width: 90%;margin-left: -10%;">
+                <div class="line-container">
+                  <h3 style="font-size: 20px;">{{GrayLiterature.title}}</h3>
+                  <!-- <input class="expand-btn" type="checkbox" data-index="{{ forloop.counter0 }}"> -->
+                </div>
+                <p>{{GrayLiterature.description}}</p>
+                {% if GrayLiterature.url %}
+                <a type="submit" href="{{GrayLiterature.url}}" target="_blank" class="btnretro btn-lg rounded-0"
+                  style="text-decoration: none;"><strong>View
+                    More &rarr;</strong></a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          <a type="submit" href="{% url 'portfolio_details' category='GrayLiteratures' %}" class="carousel-item active" style="text-decoration: none;color: #000;">
+            <div class="card card-project textg" style="margin: 0 0.5em;
+                background-color: #5700FF;border-radius: 0em;">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="img-wrapper"
+                style="min-height: 600px;position: relative;">
+                <defs style="margin: 0;">
+                  <filter id="XFmznQhx9lM_1" class="jsx-715889512" style="margin: 0;">
+                    <feColorMatrix type="matrix"
+                      values="0.31640625 0 0 0 0.33984375 0.99609375 0 0 0 0 -0.99609375 0 0 0 0.99609375 0 0 0 1 0"
+                      color-interpolation-filters="sRGB" class="jsx-715889512"></feColorMatrix>
+                  </filter>
+                </defs>
+                <image href="{% static 'portfolio/GS01.gif'%}" alt="" class="jsx-715889512 imagen-filtrada" loading="lazy"
+                  style="transform: translate(-100%, 0%);"></image>
+              </svg>
+              <div class="carousel-caption" style="width: 90%;margin-left: -10%;">
+                <div class="line-container">
+                  <h3 style="margin-top: 5%;">View More &rarr;</h3>
+                  <!-- <input class="expand-btn" type="checkbox" data-index="{{ forloop.counter0 }}"> -->
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <button type="button" class="carousel-control-prev btnretroc my-3 btn-lg rounded-0"
+          data-bs-target="#carouselControls2" data-bs-slide="prev"><strong>&larr;</strong></button>
+        <button type="button" class="carousel-control-next btnretroc my-3 btn-lg rounded-0"
+          data-bs-target="#carouselControls2" data-bs-slide="next"><strong>&rarr;</strong></button>
+      </div>
+</div>
+
+<div class="row tag tarjeta" style="margin-top: 20px  !important;position: relative; z-index: 2;">
+  <h3><span style="color: #a8ff00;" class="blinking-cursor"><strong>&gt_</strong></span><span class="textg">GENERAL
+      PORTFOLIO</span></h3>
+</div>
+
+<div class="row tag tarjeta" style="margin-top: 20px  !important;position: relative; z-index: 2;">
+  <h3><span style="color: #a8ff00;" class="blinking-cursor"><strong>&gt_</strong></span><span class="textg">IN
+      PROGRESS</span></h3>
+      <div id="carouselControls3" class="carousel tag carousel-controls">
+        <div class="carousel-inner">
+          {% for InProgress in InProgresses|slice:":5" %}
+          <div class="carousel-item active">
+            <div class="card card-project textg" style="margin: 0 0.5em;
+                background-color: #5700FF;border-radius: 0em;">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="img-wrapper"
+                style="min-height: 600px;position: relative;">
+                <defs style="margin: 0;">
+                  <filter id="XFmznQhx9lM_1" class="jsx-715889512" style="margin: 0;">
+                    <feColorMatrix type="matrix"
+                      values="0.31640625 0 0 0 0.33984375 0.99609375 0 0 0 0 -0.99609375 0 0 0 0.99609375 0 0 0 1 0"
+                      color-interpolation-filters="sRGB" class="jsx-715889512"></feColorMatrix>
+                  </filter>
+                </defs>
+                <image href="{{InProgress.image.url}}" alt="" class="jsx-715889512 imagen-filtrada" loading="lazy"
+                  style="transform: translate(-24%, 0%);"></image>
+              </svg>
+              <div class="carousel-caption" style="width: 90%;margin-left: -10%;">
+                <div class="line-container">
+                  <h3 style="font-size: 20px;">{{InProgress.title}}</h3>
+                  <!-- <input class="expand-btn" type="checkbox" data-index="{{ forloop.counter0 }}"> -->
+                </div>
+                <p>{{InProgress.description}}</p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          <a type="submit" href="{% url 'portfolio_details' category='InProgresses' %}" class="carousel-item active" style="text-decoration: none;color: #000;">
+            <div class="card card-project textg" style="margin: 0 0.5em;
+                background-color: #5700FF;border-radius: 0em;">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="img-wrapper"
+                style="min-height: 600px;position: relative;">
+                <defs style="margin: 0;">
+                  <filter id="XFmznQhx9lM_1" class="jsx-715889512" style="margin: 0;">
+                    <feColorMatrix type="matrix"
+                      values="0.31640625 0 0 0 0.33984375 0.99609375 0 0 0 0 -0.99609375 0 0 0 0.99609375 0 0 0 1 0"
+                      color-interpolation-filters="sRGB" class="jsx-715889512"></feColorMatrix>
+                  </filter>
+                </defs>
+                <image href="{% static 'portfolio/GS01.gif'%}" alt="" class="jsx-715889512 imagen-filtrada" loading="lazy"
+                  style="transform: translate(-100%, 0%);"></image>
+              </svg>
+              <div class="carousel-caption" style="width: 90%;margin-left: -10%;">
+                <div class="line-container">
+                  <h3 style="margin-top: 5%;">View More &rarr;</h3>
+                  <!-- <input class="expand-btn" type="checkbox" data-index="{{ forloop.counter0 }}"> -->
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <button type="button" class="carousel-control-prev btnretroc my-3 btn-lg rounded-0"
+          data-bs-target="#carouselControls3" data-bs-slide="prev"><strong>&larr;</strong></button>
+        <button type="button" class="carousel-control-next btnretroc my-3 btn-lg rounded-0"
+          data-bs-target="#carouselControls3" data-bs-slide="next"><strong>&rarr;</strong></button>
+      </div>
+</div>
+
+<div style="margin-top: -50px !important;">
+  <img src="{% static 'portfolio/AKIRA01.gif'%}" alt="GIF animado" width="20%" loading="lazy"
+    style="transform: scaleX(-1);z-index: 1;">
+</div>
+<!-- <div class="row tag" id=canvas-container style="margin-top: 0px  !important;">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <canvas id=sea3D></canvas>
+  <script src="{% static '3Dsea.js' %}"></script>
+</div> -->
+
+<div id="gif-url" style="display: flex; justify-content: center; align-items: center; display: none;">
+  {% block gif_url %}{% static 'portfolio/GM01.gif' %}{% endblock %}
+</div>
+
+<!-- <div style="display: flex; justify-content: center; align-items: center;">
+  <style>
+      @media (min-width: 100px) {
+        body {
+          background: url("{% static 'portfolio/EVA01.gif'%}");
+          background-size: cover;
+          background-repeat: no-repeat;
+        }
+      }
+    </style>
+</div> -->
+
+<!-- Blink terminal symbol -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const tarjetas = document.querySelectorAll('.tarjeta');
+
+    tarjetas.forEach(tarjeta => {
+      tarjeta.addEventListener('mouseenter', () => {
+        const cursor = tarjeta.querySelector('.blinking-cursor');
+        cursor.classList.add('blinking');
+      });
+
+      tarjeta.addEventListener('mouseleave', () => {
+        const cursor = tarjeta.querySelector('.blinking-cursor');
+        cursor.classList.remove('blinking');
+      });
+    });
+  });
+</script>
+
+<!-- Carousel -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'carouseleffects.js' %}"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var cutoffTextElements = document.querySelectorAll(".cutoff-text");
+
+    cutoffTextElements.forEach(function (element, index) {
+      var maxLines = parseInt(getComputedStyle(element).getPropertyValue("--max-lines"));
+      var lineHeight = parseFloat(getComputedStyle(element).getPropertyValue("--line-height"));
+
+      var contentHeight = element.scrollHeight;
+      var maxHeight = maxLines * 1.4 * lineHeight;
+
+      if (contentHeight > maxHeight) {
+        var expandBtn = document.createElement("input");
+        expandBtn.setAttribute("type", "checkbox");
+        expandBtn.className = "expand-btn";
+        expandBtn.setAttribute("data-index", index); // Almacena el índice único en el botón
+        element.parentNode.insertBefore(expandBtn, element.nextSibling);
+      }
+
+      var expandBtns = document.querySelectorAll(".expand-btn");
+
+      expandBtns.forEach(function (btn) {
+        btn.addEventListener("change", function () {
+          if (this.checked) {
+            var index = this.getAttribute("data-index");
+            var targetElement = document.querySelectorAll(".cutoff-text")[index];
+            targetElement.style.fontSize = (lineHeight * 1) + "em";
+          } else {
+            var index = this.getAttribute("data-index");
+            var targetElement = document.querySelectorAll(".cutoff-text")[index];
+            targetElement.style.fontSize = "";
+          }
+        });
+      });
+    });
+  });
+</script>
+
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+{% load static %}
+<header class="textg">
+  <h1><span class="blinking-cursor01" style="color: #a8ff00;">&gt_</span><span style="text-transform: uppercase;">{{ category_title }}</span></h1>
+</header>
+
+
+<div class="row d-flex my-1 text-center tag" style="margin-top:0;">
+  {% for post in items %}
+  <div class="carousel-inner tag" style="display:contents;">
+    <a type="submit" href="{{post.url}}" style="text-decoration: none;color: #000;"
+    target="_blank" class="carousel-item {% if forloop.first %}active{% endif %}">
+      <div class="card card-project textg" style="margin: 0 5px 10px;
+          background-color: #5700FF;border-radius: 0em;">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="img-wrapper"
+          style="min-height: 600px;position: relative;">
+          <defs style="margin: 0;">
+            <filter id="XFmznQhx9lM_1" class="jsx-715889512" style="margin: 0;">
+              <feColorMatrix type="matrix"
+                values="0.31640625 0 0 0 0.33984375 0.99609375 0 0 0 0 -0.99609375 0 0 0 0.99609375 0 0 0 1 0"
+                color-interpolation-filters="sRGB" class="jsx-715889512"></feColorMatrix>
+            </filter>
+          </defs>
+          {% if category == 'GrayLiteratures' %}
+          <image href="{{post.image.url}}" alt="" class="jsx-715889512 imagen-filtrada" loading="lazy"
+            style="transform: translate(-20%, 0%);"></image>
+          {% elif category == 'Papers' %}
+          <image href="{{post.image.url}}" alt="" class="jsx-715889512 imagen-filtrada" loading="lazy"
+            style="transform: translate(-7%, 0%);"></image>
+          {% else %}
+          <image href="{{post.image.url}}" alt="" class="jsx-715889512 imagen-filtrada" loading="lazy"
+            style="transform: translate(-20%, 0%);"></image>
+          {% endif %}
+        </svg>
+        <div class="carousel-caption" style="width: 90%;margin-left: -10%;">
+          <!-- <div class="line-container"> -->
+            <h3 style="font-size: 20px;">{{post.title}}</h3>
+            <!-- <input class="expand-btn" type="checkbox" data-index="{{ forloop.counter0 }}">
+          </div> -->
+          <p style="margin-bottom: 0;">{{post.description}}</p>
+        </div>
+      </div>
+    </a>
+  </div>
+  {% endfor %}
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'postseffects.js' %}"></script>  
+
+<div id="gif-url" style="display: flex; justify-content: center; align-items: center; display: none;">
+  {% block gif_url %}{% static 'portfolio/BBC02.gif' %}{% endblock %}
+</div>
+
+<!--Blinking Console Symbol-->
+<script>
+  // Código JavaScript aquí
+  const cursor = document.querySelector('.blinking-cursor01');
+
+  function blinkCursor() {
+    cursor.style.visibility = (cursor.style.visibility === 'visible') ? 'hidden' : 'visible';
+  }
+
+  setInterval(blinkCursor, 500);
+</script>
+
+{% endblock %}

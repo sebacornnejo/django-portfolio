@@ -1,0 +1,317 @@
+.tag {
+  opacity: 0;
+  transform: translate(0, 10vh);
+  transition: all 1s;
+}
+
+.tag.visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.textv {
+  transition: color 0.1s;
+}
+
+.textv:hover {
+  color: #5700FF !important;
+}
+
+.textg {
+  transition: color 0.1s;
+}
+
+.textg:hover {
+  color: #a8ff00 !important;
+}
+
+
+/* Loading Animation*/
+.preload {
+  overflow: hidden; 
+  transition: transform .7s;
+}
+
+.loader-wrapper {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.loader {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  border: 4px solid #5700FF;
+  animation: loader 2s infinite ease;
+}
+
+.loader-inner {
+  vertical-align: top;
+  display: inline-block;
+  width: 100%;
+  background-color: #a8ff00;
+  animation: loader-inner 2s infinite ease-in;
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(180deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  75% {
+    transform: rotate(360deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loader-inner {
+  0% {
+    height: 0%;
+  }
+
+  25% {
+    height: 0%;
+  }
+
+  50% {
+    height: 100%;
+  }
+
+  75% {
+    height: 100%;
+  }
+
+  100% {
+    height: 0%;
+  }
+}
+
+
+#bee {
+  transition: transform .1s;
+  pointer-events: none;
+  width: 7.8vw;
+  z-index: 9999;
+}
+
+.left {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+}
+
+.right {
+  -moz-transform: scaleX(1);
+  -o-transform: scaleX(1);
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+}
+
+.duotone-filter {
+  transition: filter 0.7s;
+}
+
+.duotone-filter:hover {
+  filter: url(#XFmznQhx9lM_1);
+}
+
+.backtxt {
+  transition: color 0.3s;
+}
+
+.backtxt:hover {
+  background-color: #000 !important;
+}
+
+.backtxtv {
+  transition: color 0.3s;
+}
+
+.backtxtv:hover {
+  background-color: #5700FF !important;
+}
+
+.blinking {
+  animation: blink-animation 0.8s infinite;
+}
+
+@keyframes blink-animation {
+  50% {
+    opacity: 0;
+  }
+}
+
+.underline-on-hover {
+  position: relative;
+}
+
+.underline-on-hover::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  /* Ajusta la posición del subrayado según sea necesario */
+  left: 0;
+  width: 100%;
+  border-bottom: 2px solid #5700FF;
+  /* Cambia #ff0000 al código de color que desees y 2px al grosor que desees */
+  transition: all 0.3s ease;
+  /* Agrega una transición suave para el efecto hover */
+}
+
+.underline-on-hover:hover::after {
+  bottom: -6px;
+  /* Ajusta la posición del subrayado al pasar el mouse */
+}
+
+.image-zoom {
+  transition: transform 0.3s ease;
+}
+
+
+/* WORD CLOUD */
+ul.cloud {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  line-height: 2.9vw;
+}
+
+ul.cloud a {
+  /*   
+  Not supported by any browser at the moment :(
+  --size: attr(data-weight number); 
+  */
+  --size: 4;
+  --color: white;
+  color: var(--color);
+  font-size: calc(var(--size) * 0.3vw + 0.55vw);
+  display: block;
+  padding: 0.45vw 0.3vw;
+  position: relative;
+  text-decoration: none;
+  /* 
+  For different tones of a single color
+  opacity: calc((15 - (9 - var(--size))) / 15); 
+  */
+}
+
+ul.cloud a[data-weight="1"] {
+  --size: 5;
+}
+
+ul.cloud a[data-weight="2"] {
+  --size: 6;
+}
+
+ul.cloud a[data-weight="3"] {
+  --size: 7;
+}
+
+ul.cloud a[data-weight="4"] {
+  --size: 8;
+}
+
+ul.cloud a[data-weight="5"] {
+  --size: 10;
+}
+
+ul.cloud a[data-weight="6"] {
+  --size: 12;
+}
+
+ul.cloud a[data-weight="7"] {
+  --size: 14;
+}
+
+ul.cloud a[data-weight="8"] {
+  --size: 17;
+}
+
+ul.cloud a[data-weight="9"] {
+  --size: 20;
+}
+
+
+ul[data-show-value] a::after {
+  content: " (" attr(data-weight) ")";
+  font-size: 1vw;
+}
+
+ul.cloud li:nth-child(2n+1) a {
+  --color: #a8ff00;
+}
+
+ul.cloud li:nth-child(3n+1) a {
+  --color: #f2f2f2;
+}
+
+ul.cloud li:nth-child(4n+1) a {
+  --color: #5700FF;
+}
+
+ul.cloud a:focus {
+  outline: 0.1vw dashed;
+}
+
+ul.cloud a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0;
+  height: 100%;
+  background: var(--color);
+  transform: translate(-50%, 0);
+  opacity: 0.15;
+  transition: width 0.25s;
+}
+
+ul.cloud a:focus::before,
+ul.cloud a:hover::before {
+  width: 100%;
+}
+
+@media (prefers-reduced-motion) {
+  ul.cloud * {
+    transition: none !important;
+  }
+}
+/* --------------- */
+
+.imagen-filtrada {
+  transition: filter 0.7s;
+  /* Agrega una transición suave para el cambio de filtro */
+}
+
+.imagen-filtrada:hover {
+  filter: url(#XFmznQhx9lM_1);
+  /* Aplica el filtro cuando el cursor está sobre la imagen */
+}

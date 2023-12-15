@@ -1,0 +1,354 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ pageTitle }}</title>
+    <link rel="stylesheet" href="{% static 'effects.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'stylemenu.css' %}" />
+    <link rel="icon" href="{% static 'portfolio/Avatar1-small.ico' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tonsky/FiraCode@1.207/distr/fira_code.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/css3finalize/4.1.0/jquery.css3finalize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/core-js@3.34.0/internals/export.min.js"></script>
+    <script src="https://cdn.polyfill.io/v3/polyfill.min.js?version=3.111.0&features=default"></script>
+</head>
+
+<body class="preload">
+
+    <div class="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
+    </div>
+
+
+    <div style="height: 8vw;background: #a8ff00;">
+        <a class="fade-out" style="text-decoration: none;font-size: 2.5vw;margin-left: 0.5vw;color: #000;"
+            href="/"><strong class="textv">S.
+                Cornejo-Guzmán</strong></a><br>
+        <a class="fade-out" style="text-decoration: none;font-size: 3.5vw;margin-left: 0.5vw;color: #000;"
+            href="/portfolio/"><strong class="textv">PORTFOLIO</strong></a>
+    </div>
+
+    <div class="tag" style="margin-left: 1vw;">
+    <a class="textg"
+        style="padding-left: 1vw; width: 100vw; background: #5700FF; color: #000; text-decoration: none; font-size: 13.5vw;text-align: center;font-weight: 700; text-transform: uppercase;"
+        href="/portfoliog/">GENERAL &#129034;</a>
+
+    <a class="textg"
+        style="padding-left: 1vw; width: 100vw; background: #5700FF; color: #000; text-decoration: none; font-size: 13.5vw;text-align: center;font-weight: 700; text-transform: uppercase;"
+        href="/portfolioa/">ACADEMIC &#129034;</a>
+    </div>
+
+
+    <!-- FULL SCREEN MENU -->
+    <div id="toggle-btn" class="btn">
+        <div class="btn-outline btn-outline-1"></div>
+        <div class="btn-outline btn-outline-2"></div>
+        <div id="hamburger">
+            <span class="line line-1"></span>
+            <span class="line line-2"></span>
+        </div>
+    </div>
+
+    <div class="overlay">
+        <svg viewBox="0 0 1000 1000">
+            <path d="M0 2S175 1 500 1s500 1 500 1V0H0Z"></path>
+        </svg>
+    </div>
+
+    <div class="menu">
+        <div class="primary-menu">
+            <div class="menu-container">
+                <div class="wrapper">
+                    <div class="menu-item">
+                        <a style="font-weight: 700;" href="/" class="textv">HOME</a>
+                        <div class="menu-item-revealer"></div>
+                    </div>
+
+                    <div class="menu-item">
+                        <a style="font-weight: 700;" href="/aboutme/" class="textv">ABOUT ME</a>
+                        <div class="menu-item-revealer"></div>
+                    </div>
+
+                    <div class="menu-item">
+                        <a style="font-weight: 700;" href="/skills/" class="textv">SKILLS</a>
+                        <div class="menu-item-revealer"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="secondary-menu" style="margin-top: 4vw;">
+            <div class="menu-container">
+                <div class="wrapper">
+                    <div class="menu-item">
+                        <a href="/portfoliog/" class="textv">GENERAL PORTFOLIO</a>
+                        <div class="menu-item-revealer"></div>
+                    </div>
+
+                    <div class="menu-item">
+                        <a href="/portfolioa/" class="textv">ACADEMIC PORTFOLIO</a>
+                        <div class="menu-item-revealer"></div>
+                    </div>
+
+                    <div class="menu-item">
+                        <a href="{% url 'blog:posts'%}" class="textv">BLOG</a>
+                        <div class="menu-item-revealer"></div>
+                    </div>
+
+                    <div class="menu-item">
+                        <a href="/contactme/" class="textv">CONTACT</a>
+                        <div class="menu-item-revealer"></div>
+                    </div>
+
+                    <div class="menu-item">
+                        <a href="/fquestions/" class="textv">FREQUENT QUESTIONS</a>
+                        <div class="menu-item-revealer"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"
+        integrity="sha512-cOH8ndwGgPo+K7pTvMrqYbmI8u8k6Sho3js0gOqVWTmQMlLIi6TbqGWRTpf1ga8ci9H3iPsvDLr4X7xwhC/+DQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/CSSRulePlugin.min.js"
+        integrity="sha512-zaTjCyJwbhpd8V594wpmUStv6Dy/SnmP7jR+XXnE49z2ayHkSirlNiP4XQc15Zgk+p5gXGe5ZUQYu4yRtShqkQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- ---------------- -->
+
+
+    <style>
+        @media (min-width: 100px) {
+            body {
+                background: url("{% static 'portfolio/MP01.gif'%}");
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+            }
+        }
+
+        .blinking {
+            animation: blink-animation 0.8s infinite;
+        }
+
+        @keyframes blink-animation {
+            50% {
+                opacity: 0;
+            }
+        }
+        body{
+            overflow: hidden;
+        }
+    </style>
+
+    <div id="bee">
+        <img src="{% static 'portfolio/astroboy.png'%}" />
+    </div>
+
+    <script src="{% static 'mouseicon.js' %}"></script>
+
+    <!--Loading transition-->
+    <script>
+        $(window).on("load", function () {
+            $(".loader-wrapper").fadeOut("slow");
+            $("body").removeClass("preload");
+        });
+    </script>
+
+
+    <!-- Fade-in Transition-->
+    <script>
+        $(document).ready(function () {
+            $(".tag").addClass("not-animated");
+
+            function animateVisibleElements() {
+                var pageTop = $(document).scrollTop();
+                var pageBottom = pageTop + $(window).height();
+                var tags = $(".tag.not-animated");
+
+                for (var i = 0; i < tags.length; i++) {
+                    var tag = tags[i];
+
+                    if ($(tag).position().top < pageBottom) {
+                        $(tag).addClass("visible");
+                        $(tag).removeClass("not-animated");
+                    }
+                }
+            }
+
+            animateVisibleElements();
+
+            $(document).on("scroll", function () {
+                animateVisibleElements();
+            });
+        });
+    </script>
+    <!-- ---------------- -->
+
+
+    <!-- Fade-in Transition-->
+    <script>
+        $(document).ready(function () {
+        function animateVisibleElements() {
+            var tags = $(".tag.not-animated");
+
+            for (var i = 0; i < tags.length; i++) {
+                var tag = tags[i];
+                $(tag).addClass("visible");
+                $(tag).removeClass("not-animated");
+            }
+        }
+
+        animateVisibleElements();
+    });
+    </script>
+    <!-- ------------------ -->
+
+    <script>
+        const tl = gsap.timeline({
+            paused: true
+        });
+        let path = document.querySelector("path");
+        let spanBefore = CSSRulePlugin.getRule("#hamburger .line-2");
+
+        gsap.set(spanBefore, { background: "#000" });
+        gsap.set(".menu", { visibility: "hidden" });
+        gsap.set(".overlay", { opacity: 0, display: "none" });
+
+        function revealMenu() {
+            revealMenuItems();
+
+            const hamburger = document.getElementById("hamburger");
+            const toggleBtn = document.getElementById("toggle-btn");
+            const overlay = document.querySelector(".overlay");
+
+
+            toggleBtn.onclick = (e) => {
+                hamburger.classList.toggle("active");
+                tl.reversed(!tl.reversed());
+            };
+        }
+        revealMenu();
+
+        function revealMenuItems() {
+            const start = "M0 502S175 272 500 272s500 230 500 230V0H0Z";
+            const end = "M0, 1005S175, 995, 500, 995s500, 5, 500, 5V0H0Z";
+
+            const power2 = "power2.inout";
+            const power4 = "power4.inout";
+
+            tl.to("#hamburger", 0.7, {
+                marginTop: "-5px",
+                x: -40,
+                y: 40,
+                ease: power4
+            });
+            tl.to(
+                "#hamburger .line",
+                0.7,
+                {
+                    background: "#fff",
+                    ease: power2
+                },
+                "<"
+            );
+            tl.to(
+                spanBefore,
+                0.7,
+                {
+                    background: "#fff",
+                    ease: power2
+                },
+                "<"
+            );
+
+            tl.to(
+                ".btn .btn-outline",
+                0.7,
+                {
+                    x: -40,
+                    y: 40,
+                    width: "140px",
+                    height: "140px",
+                    border: "1px solid #e2e2dc",
+                    ease: power4
+                },
+                "<"
+            );
+            tl.to(
+                path,
+                0.7,
+                {
+                    attr: {
+                        d: start
+                    },
+                    ease: power2
+                },
+                "<"
+            ).to(
+                path,
+                0.7,
+                {
+                    attr: { d: end },
+                    ease: power2
+                },
+                "-=0.7"
+            );
+
+            tl.to(
+                ".overlay",
+                0.7,
+                {
+                    opacity: 1,
+                    display: "flex",
+                    ease: power2
+                },
+                "-=0.7"
+            );
+
+            tl.to(
+                ".menu",
+                0.7,
+                {
+                    visibility: "visible"
+                },
+                "-=0.7"
+            );
+
+            tl.to(
+                ".menu-item>a",
+                0.7,
+                {
+                    top: 0,
+                    ease: "power3.out",
+                    stagger: {
+                        amount: 0.5
+                    }
+                },
+                "-=0.7"
+            ).reverse();
+
+        }
+
+    </script>
+
+    <!-- Automatic min-height Adjustment -->
+    <script>
+        function setMinHeight() {
+            var contentHeight = document.body.scrollHeight;
+            document.body.style.minHeight = contentHeight + "px";
+        }
+        window.addEventListener("load", setMinHeight);
+        window.addEventListener("resize", setMinHeight);
+    </script>
+    <!-- ------------------------------ -->
+
+</body>
+
+</html>
