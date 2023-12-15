@@ -1091,7 +1091,7 @@ h6, .h6 {
 
 .cardc-project:hover {
   border: 1px solid #F2F2F2 !important;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 
