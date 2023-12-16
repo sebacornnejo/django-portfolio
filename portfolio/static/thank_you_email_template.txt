@@ -1,8 +1,0 @@
-Dear {{ full_name }},
-
-Thank you for getting in touch! 👊 I'm diving into the details and will get back to you with lightning speed ⚡. 
-I can't wait to support you!
-
-Gratefully,
-Sebastián Cornejo-Guzmán
-An Extraordinary Earthling 🌐
