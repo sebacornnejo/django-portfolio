@@ -1,0 +1,1002 @@
+body {
+  padding-top: 56px;
+  /* Ajusta la altura de la barra de navegación aquí */
+}
+
+.selectable-text {
+  user-select: text;
+}
+
+.no-cursor {
+  cursor: default;
+}
+
+.selectable-text::selection {
+  background-color: #8562c8; 
+  color: #323232; 
+}
+
+/* Estilos para la selección de texto en Firefox */
+.selectable-text::-moz-selection {
+  background-color: #8562c8;
+  color: #323232;
+}
+
+.card-project {
+  border: 1px solid #000;
+  transition: background 0.3s;
+}
+
+.card-project:hover {
+  border: 1px solid #F2F2F2;
+  cursor: pointer;
+}
+
+
+.cardc-project {
+  border: 1px solid #000;
+  transition: background 0.3s;
+}
+
+.cardc-project:hover {
+  border: 1px solid #F2F2F2;
+  cursor: pointer;
+}
+
+
+.btnretro {
+  padding: 8px 14px;
+  cursor: pointer;
+  background-color: white;
+  color: #5700FF;
+  border: 2px solid #000;
+  /*box-shadow: 2px 2px 0 0 white,
+    4px 4px 0 0 #000;*/
+  transition-duration: 0.3s;
+}
+
+.btnretro:hover {
+  box-shadow: 3px 3px white,
+    6px 6px 0 0 #000;
+  background-color: #000 !important;
+  color: #a8ff00 !important;
+  border: 2px solid white;
+}
+
+
+.btnretroc {
+  padding: 8px 14px;
+  cursor: pointer;
+  background-color: white;
+  color: #5700FF;
+  border: 2px solid #000;
+  /*box-shadow: 2px 2px 0 0 white,
+    4px 4px 0 0 #000;*/
+  transition-duration: 0.3s;
+}
+
+.btnretroc:hover {
+  background-color: #000;
+  color: #a8ff00;
+  border: 2px solid white;
+}
+
+/* CSS code */
+
+.textg {
+  transition: color 0.3s;
+  /* Smooth transition effect for color change */
+}
+
+.textg:hover {
+  color: #a8ff00 !important;
+  /* Text color changes to red when hovering */
+}
+
+.textv {
+  transition: color 0.3s;
+  /* Smooth transition effect for color change */
+}
+
+.textv:hover {
+  color: #5700FF;
+  /* Text color changes to red when hovering */
+}
+
+.textw {
+  transition: color 0.3s;
+  /* Smooth transition effect for color change */
+}
+
+.textw:hover {
+  color: white;
+  /* Text color changes to red when hovering */
+}
+
+.backtxt {
+  transition: color 0.3s;
+  /* Smooth transition effect for color change */
+}
+
+.backtxt:hover {
+  background-color: #000 !important;
+}
+
+.backtxtv {
+  transition: color 0.3s;
+  /* Smooth transition effect for color change */
+}
+
+.backtxtv:hover {
+  background-color: #5700FF;
+}
+
+
+.backtxtw {
+  transition: color 0.3s;
+  /* Smooth transition effect for color change */
+}
+
+.backtxtw:hover {
+  color: #000;
+  background-color: white;
+}
+
+.cardc-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  /* Ancho mínimo 200px, distribuido de manera uniforme */
+  gap: 0px;
+  /* Espaciado entre las tarjetas */
+  justify-content: center;
+  align-items: center;
+}
+
+
+.cardc {
+  border: 1px solid #000;
+  padding: 20px;
+  text-align: center;
+}
+
+
+.imagen-filtrada {
+  transition: filter 0.7s;
+  /* Agrega una transición suave para el cambio de filtro */
+}
+
+.imagen-filtrada:hover {
+  filter: url(#XFmznQhx9lM_1);
+  /* Aplica el filtro cuando el cursor está sobre la imagen */
+}
+
+
+.underline-on-hover {
+  position: relative;
+}
+
+.underline-on-hover::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  /* Ajusta la posición del subrayado según sea necesario */
+  left: 0;
+  width: 100%;
+  border-bottom: 2px solid #5700FF;
+  /* Cambia #ff0000 al código de color que desees y 2px al grosor que desees */
+  transition: all 0.3s ease;
+  /* Agrega una transición suave para el efecto hover */
+}
+
+.underline-on-hover:hover::after {
+  bottom: -6px;
+  /* Ajusta la posición del subrayado al pasar el mouse */
+}
+
+
+.imagen-filtrada01 {
+  /* Otros estilos aquí */
+  transition: transform 0.3s ease;
+  /* Agrega una transición suave para el efecto de zoom */
+}
+
+
+/* WORD CLOUD */
+ul.cloud {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  line-height: 2.75rem;
+}
+
+ul.cloud a {
+  /*   
+  Not supported by any browser at the moment :(
+  --size: attr(data-weight number); 
+  */
+  --size: 4;
+  --color: white;
+  color: var(--color);
+  font-size: calc(var(--size) * 0.25rem + 0.5rem);
+  display: block;
+  padding: 0.125rem 0.25rem;
+  position: relative;
+  text-decoration: none;
+  /* 
+  For different tones of a single color
+  opacity: calc((15 - (9 - var(--size))) / 15); 
+  */
+}
+
+ul.cloud a[data-weight="1"] {
+  --size: 1;
+}
+
+ul.cloud a[data-weight="2"] {
+  --size: 2;
+}
+
+ul.cloud a[data-weight="3"] {
+  --size: 3;
+}
+
+ul.cloud a[data-weight="4"] {
+  --size: 4;
+}
+
+ul.cloud a[data-weight="5"] {
+  --size: 6;
+}
+
+ul.cloud a[data-weight="6"] {
+  --size: 8;
+}
+
+ul.cloud a[data-weight="7"] {
+  --size: 10;
+}
+
+ul.cloud a[data-weight="8"] {
+  --size: 13;
+}
+
+ul.cloud a[data-weight="9"] {
+  --size: 16;
+}
+
+
+ul[data-show-value] a::after {
+  content: " (" attr(data-weight) ")";
+  font-size: 1rem;
+}
+
+ul.cloud li:nth-child(2n+1) a {
+  --color: #a8ff00;
+}
+
+ul.cloud li:nth-child(3n+1) a {
+  --color: #f2f2f2;
+}
+
+ul.cloud li:nth-child(4n+1) a {
+  --color: #5700FF;
+}
+
+ul.cloud a:focus {
+  outline: 1px dashed;
+}
+
+ul.cloud a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0;
+  height: 100%;
+  background: var(--color);
+  transform: translate(-50%, 0);
+  opacity: 0.15;
+  transition: width 0.25s;
+}
+
+ul.cloud a:focus::before,
+ul.cloud a:hover::before {
+  width: 100%;
+}
+
+@media (prefers-reduced-motion) {
+  ul.cloud * {
+    transition: none !important;
+  }
+}
+
+
+/* TIMELINE
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.timeline ul {
+  background: #000;
+  padding: 50px 0;
+}
+
+.timeline ul li {
+  list-style-type: none;
+  position: relative;
+  width: 6px;
+  margin: 0 auto;
+  padding-top: 50px;
+  background: #fff;
+}
+
+.timeline ul li::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: inherit;
+  z-index: 1;
+}
+
+.timeline ul li div {
+  position: relative;
+  bottom: 0;
+  width: 400px;
+  padding: 15px;
+  border: 3px solid white;
+  background: #5700FF;
+}
+
+.timeline ul li div::before {
+  content: "";
+  position: absolute;
+  bottom: 7px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.timeline ul li:nth-child(odd) div {
+  left: 45px;
+  text-align: right !important;
+}
+
+.timeline ul li:nth-child(odd) div::before {
+  left: -16px;
+  border-width: 8px 16px 8px 0;
+  border-color: transparent #5700FF transparent transparent;
+  transition: border-color 0.3s ease;
+}
+
+.timeline ul li:nth-child(odd) div:hover::before {
+  border-width: 8px 16px 8px 0;
+  border-color: transparent white transparent transparent;
+  /* Cambia el color del borde al hacer hover */
+}
+
+.timeline ul li:nth-child(even) div {
+  left: -439px;
+}
+
+.timeline ul li:nth-child(even) div::before {
+  right: -16px;
+  border-width: 8px 0 8px 16px;
+  border-color: transparent transparent transparent #5700FF;
+  transition: border-color 0.3s ease;
+}
+
+.timeline ul li:nth-child(even) div:hover::before {
+  border-color: transparent transparent transparent white;
+  /* Cambia el color del borde al hacer hover */
+}
+
+time {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+
+/* EFFECTS
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.timeline ul li::after {
+  transition: background 0.5s ease-in-out;
+}
+
+.timeline ul li.in-view::after {
+  background: #a8ff00;
+}
+
+.timeline ul li div {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.timeline ul li:nth-child(odd) div {
+  transform: translate3d(200px, 0, 0);
+}
+
+.timeline ul li:nth-child(even) div {
+  transform: translate3d(-200px, 0, 0);
+}
+
+.timeline ul li.in-view div {
+  transform: none;
+  visibility: visible;
+  opacity: 1;
+}
+
+
+/* GENERAL MEDIA QUERIES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+@media screen and (max-width: 900px) {
+  .timeline ul li div {
+    width: 250px;
+  }
+
+  .timeline ul li:nth-child(even) div {
+    left: -289px;
+    /*250+45-6*/
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .timeline ul li {
+    margin-left: 20px;
+  }
+
+  .timeline ul li div {
+    width: calc(100vw - 91px);
+  }
+
+  .timeline ul li:nth-child(even) div {
+    left: 45px;
+  }
+
+  .timeline ul li:nth-child(even) div::before {
+    left: -15px;
+    border-width: 8px 16px 8px 0;
+    border-color: transparent #5700FF transparent transparent;
+  }
+}
+
+
+/* EXTRA/CLIP PATH STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.timeline-clippy ul li::after {
+  width: 40px;
+  height: 40px;
+  border-radius: 0;
+}
+
+.timeline-rhombus ul li::after {
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.timeline-rhombus ul li div::before {
+  bottom: 12px;
+}
+
+.timeline-star ul li::after {
+  clip-path: polygon(50% 0%,
+      61% 35%,
+      98% 35%,
+      68% 57%,
+      79% 91%,
+      50% 70%,
+      21% 91%,
+      32% 57%,
+      2% 35%,
+      39% 35%);
+}
+
+.timeline-heptagon ul li::after {
+  clip-path: polygon(50% 0%,
+      90% 20%,
+      100% 60%,
+      75% 100%,
+      25% 100%,
+      0% 60%,
+      10% 20%);
+}
+
+.timeline-infinite ul li::after {
+  animation: scaleAnimation 2s infinite;
+}
+
+@keyframes scaleAnimation {
+  0% {
+    transform: translateX(-50%) scale(1);
+  }
+
+  50% {
+    transform: translateX(-50%) scale(1.25);
+  }
+
+  100% {
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+/* Loading Animation*/
+.preload {
+  /* overflow: hidden; */
+  transition: transform .7s;
+  /* Agrega una clase con overflow: hidden al cuerpo */
+}
+
+.loader-wrapper {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.loader {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  border: 4px solid #5700FF;
+  animation: loader 2s infinite ease;
+}
+
+.loader-inner {
+  vertical-align: top;
+  display: inline-block;
+  width: 100%;
+  background-color: #a8ff00;
+  animation: loader-inner 2s infinite ease-in;
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(180deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  75% {
+    transform: rotate(360deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loader-inner {
+  0% {
+    height: 0%;
+  }
+
+  25% {
+    height: 0%;
+  }
+
+  50% {
+    height: 100%;
+  }
+
+  75% {
+    height: 100%;
+  }
+
+  100% {
+    height: 0%;
+  }
+}
+
+.tag {
+  opacity: 0;
+  transform: translate(0, 10vh);
+  transition: all 1s;
+}
+
+.tag.visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+:root {
+  --color-box-1: #5700FF;
+  --color-box-2: #a8ff00;
+  --animation-speed: 1.5s;
+  --row-col-size: 5;
+  --grid-item-size: 6.7vmin;
+}
+
+.art {
+  border: .2rem solid var(--color-box-2);
+  padding: 5vmin;
+  display: grid;
+  grid-template-columns: repeat(var(--row-col-size), var(--grid-item-size));
+  grid-template-rows: repeat(var(--row-col-size), var(--grid-item-size));
+  gap: 1vmin;
+}
+
+.item:nth-child(odd) {
+  background-color: var(--color-box-1);
+  animation: ans-white var(--animation-speed) linear infinite;
+}
+
+.item:nth-child(even) {
+  background-color: var(--color-box-2);
+  animation: ans var(--animation-speed) linear infinite;
+}
+
+
+
+@keyframes ans {
+
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  25% {
+    clip-path: polygon(100% 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  50% {
+    clip-path: polygon(100% 0, 100% 0, 100% 100%, 0 0);
+  }
+
+  75% {
+    clip-path: polygon(100% 0, 100% 0, 0 100%, 0 0);
+  }
+
+  100% {
+    clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0);
+  }
+
+}
+
+
+@keyframes ans-white {
+
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  25% {
+    clip-path: polygon(0 0, 100% 0, 0 100%, 0 100%);
+  }
+
+  50% {
+    clip-path: polygon(0 0, 100% 100%, 0 100%, 0 100%);
+  }
+
+  75% {
+    clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 100%);
+  }
+
+  100% {
+    clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0);
+  }
+
+}
+
+
+/*Shifty Eye Dots*/
+.outer-eye {
+  /*Positioning*/
+  position: relative;
+  display: inline-block;
+  /*Styling*/
+  background: white;
+  border-radius: 50%;
+  /*Size*/
+  width: 100px;
+  height: 100px;
+}
+
+.outer-eye-2 {
+  left: 50px;
+}
+
+.inner-eye {
+  /*Positioning*/
+  position: absolute;
+  top: 50px;
+  left: 45px;
+  /*Styling*/
+  background: #000;
+  border-radius: 50%;
+  /*Size*/
+  width: 35px;
+  height: 35px;
+  /*Assigns animation*/
+  animation: shifty 3s infinite;
+}
+
+/*Begin animation details*/
+@keyframes shifty {
+  50% {
+    /*Moves pupils to left, change number to see what happens*/
+    transform: translateX(-25px);
+  }
+
+  75% {
+    /*Moves pupils right and up, change numbers to see what happens*/
+    transform: translateY(-30px) translateX(-10px);
+  }
+}
+
+.typing-demo {
+  width: 39ch;
+}
+
+.typing-demo2 {
+  width: 50ch; /* Puedes ajustar el valor según tus necesidades */
+}
+
+.typing-demo, .typing-demo2 {
+  animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-size: 2em;
+  animation-play-state: paused;
+  /* Pausa la animación inicialmente */
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent
+  }
+}
+
+#bee {
+  transition: transform .1s;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.left {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+}
+
+.right {
+  -moz-transform: scaleX(1);
+  -o-transform: scaleX(1);
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+}
+
+
+#c {
+  z-index: -1;
+  /* Coloca el canvas detrás del contenido */
+}
+
+#sea3D {
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: -1;
+  /* Coloca el canvas detrás del contenido */
+}
+
+#canvas-container {
+  z-index: -1;
+  /* Coloca el canvas detrás del contenido */
+}
+
+.carousel-inner {
+  padding: 1em;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  background-color: #000;
+  width: 6vh;
+  height: 6vh;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@media (min-width: 768px) {
+  .carousel-item {
+    margin-right: 0;
+    flex: 0 0 33.333333%;
+    display: block;
+  }
+
+  .carousel-inner {
+    display: flex;
+  }
+}
+
+.card .img-wrapper {
+  max-width: 100%;
+  height: 20em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card image {
+  max-height: 100%;
+}
+
+@media (max-width: 767px) {
+  .card .img-wrapper {
+    height: 17em;
+  }
+}
+
+
+.carousel-caption {
+  display: none;
+  /* Oculta el caption por defecto */
+  color: #000;
+  background-color: white;
+}
+
+.carousel-caption.active {
+  display: block;
+}
+
+.imagen-filtrada.active {
+  filter: url(#XFmznQhx9lM_1);
+}
+
+
+.blinking {
+  animation: blink-animation 0.8s infinite;
+}
+
+@keyframes blink-animation {
+  50% {
+    opacity: 0;
+  }
+}
+
+.cutoff-textd {
+  --max-lines: 7;
+
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--max-lines);
+
+}
+
+.cutoff-text {
+  --max-lines: 7;
+  --line-height: 1.4;
+
+  max-height: calc(var(--max-lines) * 1em * var(--line-height));
+  line-height: var(--line-height);
+
+  overflow: hidden;
+  position: relative;
+}
+
+.cutoff-text:has(+ .expand-btn:not(:checked)):before {
+  content: "";
+  position: absolute;
+  height: calc(1em * var(--line-height));
+  width: 100%;
+  bottom: 0;
+  pointer-events: none;
+  /* background: linear-gradient(to bottom, transparent, white); */
+}
+
+.expand-btn {
+  position: absolute;
+  right: 0;
+  transform: translateY(-50%);
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  color: #5700FF;
+}
+
+.expand-btn:hover {
+  color: #a8ff00;
+}
+
+.expand-btn::before {
+  content: "[+]";
+}
+
+.expand-btn:checked:before {
+  content: "[-]";
+}
+
+.cutoff-text:has(+ .expand-btn:checked) {
+  max-height: none;
+}
+
+.line-container {
+  position: relative;
+  display: inline-block;
+}
+
+
+/* Post box */
+.post-inner {
+  padding: 1em;
+}
+
+@media (min-width: 768px) {
+  .post-item {
+    margin-right: 0;
+    flex: 0 0 33.333333%;
+    display: block;
+  }
+
+  .post-inner {
+    display: flex;
+  }
+}
+
+.post-caption {
+  display: none;
+  /* Oculta el caption por defecto */
+  color: #000;
+  background-color: white;
+}
+
+.post-caption.active {
+  display: block;
+}
+
+
+/* Formulario de Contacto */
+
+input,
+textarea {
+  width: 33.5%;
+  padding: 2px;
+  /* margin-bottom: 16px; */
+  border: 1px solid #000;
+  border-radius: 0px;
+  box-sizing: border-box;
+  color: #5700FF;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+input:focus,
+textarea:focus {
+  border: 1px solid #a8ff00;
+  color: #000;
+}
