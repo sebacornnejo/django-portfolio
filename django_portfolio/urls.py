@@ -33,6 +33,6 @@ urlpatterns = [
     path('contactme/', views.contactme,name='contactme'),
     path('fquestions/', views.fquestions,name='fquestions'),
     path('thankyou/', views.thankyou,name='thankyou'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
