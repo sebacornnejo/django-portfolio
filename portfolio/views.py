@@ -24,20 +24,25 @@ def aboutme(request):
     }
     return render(request,'aboutme.html',context)
 
+from django.http import HttpResponseServerError
+
 def skills(request):
-    all_posts = list(reversed(Post.objects.all()))
-    selected_indices = [4, 3, 2, 9]
-    selected_posts = [post for index, post in enumerate(all_posts) if index in selected_indices]
-    for index, post in enumerate(selected_posts):
-        post.semidescription = striptags(post.description)  # Sin escapar
-        post.description = mark_safe(post.description)  # Escapada
-        post.index = index 
-        context = {
-            'Posts':selected_posts,
-            'pageTitle': 'Skills | S. Cornejo-Guzmán',
-            'post_index': post.index
-        }
-    return render(request,'skills.html',context)
+    try:
+        all_posts = list(reversed(Post.objects.all()))
+        selected_indices = [4, 3, 2, 9]
+        selected_posts = [post for index, post in enumerate(all_posts) if index in selected_indices]
+        for index, post in enumerate(selected_posts):
+            post.semidescription = striptags(post.description)  # Sin escapar
+            post.description = mark_safe(post.description)  # Escapada
+            post.index = index 
+            context = {
+                'Posts':selected_posts,
+                'pageTitle': 'Skills | S. Cornejo-Guzmán',
+                'post_index': post.index
+            }
+        return render(request,'skills.html',context)
+    except Exception as e:
+        return HttpResponseServerError(f"Error: {e}")
 
 def portfoliog(request):
     GeneralPortfolios = list(reversed(GeneralPortfolio.objects.all()))
