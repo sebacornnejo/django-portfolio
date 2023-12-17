@@ -326,7 +326,7 @@
     <div class="tag row justify-content-center"
         style="text-transform: uppercase; margin-top: 0.4vw; margin-bottom: 3.7vw !important;">
         <div class="textg col-md-90" style="background: #5700FF; text-align: justify; padding-top: 0.5vw !important;">
-            <h3 style="font-size: 1.2vw !important; font-weight: 700;">
+            <h3 class="enlarge-font-size" style="font-size: 1.2vw !important; font-weight: 700;">
                 This project serves as a guide for web scraping and its data visualization, providing a set of tools for
                 extracting and visualizing information from diverse online sources. The example project, "What is
                 Anarchy for the Internet?" showcases the application of these scripts.
@@ -1012,6 +1012,35 @@
         window.addEventListener("resize", setMinHeight);
     </script>
     <!-- ------------------------------ -->
+
+
+    <script>
+        function adjustScreen() {
+            var screenHeight = window.innerHeight;
+            var screenWidth = window.innerWidth;
+    
+            // Check if the height is greater than the width
+            if (screenHeight > screenWidth) {
+                // Set the screen format to 1600x900
+                document.body.style.width = "1600px";
+                document.body.style.height = "900px";
+    
+                // Select elements that should double their font-size
+                var elementsToEnlarge = document.querySelectorAll('.enlarge-font-size');
+    
+                // Double the font-size for the selected elements
+                elementsToEnlarge.forEach(function(element) {
+                    var currentFontSize = window.getComputedStyle(element).fontSize;
+                    var newFontSize = parseFloat(currentFontSize) * 2 + 'vw';
+                    element.style.fontSize = newFontSize;
+                });
+            }
+        }
+    
+        // Call the function on page load and when the window is resized
+        window.addEventListener('load', adjustScreen);
+        window.addEventListener('resize', adjustScreen);
+    </script>
 
 </body>
 
