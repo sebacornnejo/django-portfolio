@@ -326,7 +326,7 @@
     <div class="tag row justify-content-center"
         style="text-transform: uppercase; margin-top: 0.4vw; margin-bottom: 3.7vw !important;">
         <div class="textg col-md-90" style="background: #5700FF; text-align: justify; padding-top: 0.5vw !important;">
-            <h3 style="font-size: 1.2vw !important; font-weight: 700;">
+            <h3 class="enlarge-font" style="font-size: 1.2vw !important; font-weight: 700;">
                 This project serves as a guide for web scraping and its data visualization, providing a set of tools for
                 extracting and visualizing information from diverse online sources. The example project, "What is
                 Anarchy for the Internet?" showcases the application of these scripts.
@@ -1012,6 +1012,45 @@
         window.addEventListener("resize", setMinHeight);
     </script>
     <!-- ------------------------------ -->
+
+
+    <script>
+        function adjustScreenStyle() {
+  // Get the width and height of the screen
+  var width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+  var height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+  // Check if height is greater than width
+  if (height > width) {
+    // Calculate the height proportionally to the width (e.g., 16:9 ratio)
+    var aspectRatio = 9 / 16; // You can adjust this based on the desired proportion
+    var newHeight = width * aspectRatio;
+
+    // Apply styles to the body
+    document.body.style.width = width + 'px';
+    document.body.style.height = newHeight + 'px';
+
+    // Identify and increase font size for certain elements
+    var elementsEnlargeFont = document.querySelectorAll('.enlarge-font');
+
+    elementsEnlargeFont.forEach(function (element) {
+      // Double the font size
+      var fontSize = window.getComputedStyle(element, null).getPropertyValue('font-size');
+      var newFontSize = parseInt(fontSize) * 2 + 'vw';
+      element.style.fontSize = newFontSize;
+    });
+  } else {
+    // Restore the original style for horizontal screens
+    document.body.style.width = 'auto';
+    document.body.style.height = 'auto';
+  }
+}
+
+// Execute the function on page load and resize events
+window.addEventListener('resize', adjustScreenStyle);
+window.addEventListener('load', adjustScreenStyle);
+
+    </script>
 
 </body>
 
