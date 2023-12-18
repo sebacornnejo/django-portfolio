@@ -34,13 +34,13 @@
     </div>
 
     <div class="tag" style="margin-left: 1vw;">
-    <a class="textg"
-        style="padding-left: 1vw; width: 100vw; background: #5700FF; color: #000; text-decoration: none; font-size: 13.5vw;text-align: center;font-weight: 700; text-transform: uppercase;"
-        href="/portfoliog/">GENERAL &#129034;</a>
+        <a class="textg"
+            style="padding-left: 1vw; width: 100vw; background: #5700FF; color: #000; text-decoration: none; font-size: 13.5vw;text-align: center;font-weight: 700; text-transform: uppercase;"
+            href="/portfoliog/">GENERAL &#129034;</a>
 
-    <a class="textg"
-        style="padding-left: 1vw; width: 100vw; background: #5700FF; color: #000; text-decoration: none; font-size: 13.5vw;text-align: center;font-weight: 700; text-transform: uppercase;"
-        href="/portfolioa/">ACADEMIC &#129034;</a>
+        <a class="textg"
+            style="padding-left: 1vw; width: 100vw; background: #5700FF; color: #000; text-decoration: none; font-size: 13.5vw;text-align: center;font-weight: 700; text-transform: uppercase;"
+            href="/portfolioa/">ACADEMIC &#129034;</a>
     </div>
 
 
@@ -142,7 +142,8 @@
                 opacity: 0;
             }
         }
-        body{
+
+        body {
             overflow: hidden;
         }
     </style>
@@ -195,18 +196,18 @@
     <!-- Fade-in Transition-->
     <script>
         $(document).ready(function () {
-        function animateVisibleElements() {
-            var tags = $(".tag.not-animated");
+            function animateVisibleElements() {
+                var tags = $(".tag.not-animated");
 
-            for (var i = 0; i < tags.length; i++) {
-                var tag = tags[i];
-                $(tag).addClass("visible");
-                $(tag).removeClass("not-animated");
+                for (var i = 0; i < tags.length; i++) {
+                    var tag = tags[i];
+                    $(tag).addClass("visible");
+                    $(tag).removeClass("not-animated");
+                }
             }
-        }
 
-        animateVisibleElements();
-    });
+            animateVisibleElements();
+        });
     </script>
     <!-- ------------------ -->
 
@@ -348,6 +349,44 @@
         window.addEventListener("resize", setMinHeight);
     </script>
     <!-- ------------------------------ -->
+
+    <!-- Mobile deployment -->
+    <script>
+        function adjustScreenStyle() {
+            // Check if the device is mobile
+            var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+            if (isMobile) {
+                // Request the browser to behave like a desktop site
+                var metaViewport = document.createElement('meta');
+                metaViewport.name = 'viewport';
+                metaViewport.content = 'width=device-width, initial-scale=0.1, maximum-scale=1.0, user-scalable=no';
+                document.head.appendChild(metaViewport);
+
+                // Identify and increase font size for certain elements
+                var elementsIncreaseFont = document.querySelectorAll('.enlarge-font');
+
+                elementsIncreaseFont.forEach(function (element) {
+                    // Double the font size
+                    var fontSize = window.getComputedStyle(element, null).getPropertyValue('font-size');
+                    var newFontSize = parseInt(fontSize) * 2 + 'px';
+                    element.style.fontSize = newFontSize;
+                });
+
+                document.addEventListener('touchstart', function () {
+                    metaViewport.content = 'width=device-width, initial-scale=0.1, maximum-scale=5.0, user-scalable=yes';
+                });
+            } else {
+                // Restore the original style for non-mobile devices
+                document.body.style.width = 'auto';
+                document.body.style.height = 'auto';
+            }
+        }
+
+        // Execute the function when the page is loaded
+        window.addEventListener('load', adjustScreenStyle);
+    </script>
+    <!-- ------------- -->
 
 </body>
 

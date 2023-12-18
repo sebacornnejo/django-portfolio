@@ -26,82 +26,88 @@
 
 
     <div style="height: 8vw;background: #a8ff00;">
-        <h3 class="fade-out" style="font-size: 4vw;margin-left: 0.5vw;padding-top: 0.5vh;"><strong class="textv">SYNCHRONIZED PARALLELISM</strong></h3>
+        <h3 class="fade-out" style="font-size: 4vw;margin-left: 0.5vw;padding-top: 0.5vh;"><strong
+                class="textv">SYNCHRONIZED PARALLELISM</strong></h3>
         <br>
-        <p style="margin-left: 0.5vw; text-transform: uppercase; margin-top: -3vh;">The self is the convergence of multiple random facets.</p>
+        <p style="margin-left: 0.5vw; text-transform: uppercase; margin-top: -3vh;">The self is the convergence of
+            multiple random facets.</p>
     </div>
 
     <div class="row d-flex my-1 text-center tag" style="margin-top:1.5vh !important;">
         {% for post in Posts%}
         <div class="carousel-inner tag" style="display:contents;">
-          <a type="submit" href="{% url 'blog:post_detail' post.id %}" data-modal-target="#modalDisplay{{ forloop.counter }}" style="text-decoration: none;color: #000;"
-            class="carousel-item {% if forloop.first %}active{% endif %}">
-            <div class="card card-project textg" style="margin: 0 0.3vw 1vh;
+            <a type="submit" href="{% url 'blog:post_detail' post.id %}"
+                data-modal-target="#modalDisplay{{ forloop.counter }}" style="text-decoration: none;color: #000;"
+                class="carousel-item {% if forloop.first %}active{% endif %}">
+                <div class="card card-project textg" style="margin: 0 0.3vw 1vh;
                 background-color: #5700FF;border-radius: 0em;">
-              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="img-wrapper"
-                style="min-height: 49.4vw;position: relative;">
-                <defs style="margin: 0;">
-                  <filter id="XFmznQhx9lM_1" class="jsx-715889512" style="margin: 0;">
-                    <feColorMatrix type="matrix"
-                      values="0.31640625 0 0 0 0.33984375 0.99609375 0 0 0 0 -0.99609375 0 0 0 0.99609375 0 0 0 1 0"
-                      color-interpolation-filters="sRGB" class="jsx-715889512"></feColorMatrix>
-                  </filter>
-                </defs>
-                <image href="{{post.image.url}}" alt="" class="jsx-715889512 imagen-filtrada" loading="lazy"
-                  style="transform: translate(-24.8%, 0%);"></image>
-              </svg>
-              <div class="carousel-caption">
-                <!-- <div class="line-container"> -->
-                  <h3 style="font-size: 1.4vw; font-weight: 700; text-transform: uppercase;">{{post.title}}</h3>
-                  <!-- <input class="expand-btn" type="checkbox" data-index="{{ forloop.counter0 }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        class="img-wrapper" style="min-height: 49.4vw;position: relative;">
+                        <defs style="margin: 0;">
+                            <filter id="XFmznQhx9lM_1" class="jsx-715889512" style="margin: 0;">
+                                <feColorMatrix type="matrix"
+                                    values="0.31640625 0 0 0 0.33984375 0.99609375 0 0 0 0 -0.99609375 0 0 0 0.99609375 0 0 0 1 0"
+                                    color-interpolation-filters="sRGB" class="jsx-715889512"></feColorMatrix>
+                            </filter>
+                        </defs>
+                        <image href="{{post.image.url}}" alt="" class="jsx-715889512 imagen-filtrada" loading="lazy"
+                            style="transform: translate(-24.8%, 0%);"></image>
+                    </svg>
+                    <div class="carousel-caption">
+                        <!-- <div class="line-container"> -->
+                        <h3 style="font-size: 1.4vw; font-weight: 700; text-transform: uppercase;">{{post.title}}</h3>
+                        <!-- <input class="expand-btn" type="checkbox" data-index="{{ forloop.counter0 }}">
                 </div> -->
-                <p class="cutoff-textd" style="font-size: 0.95vw;">{{post.semidescription}}</p>
-              </div>
-            </div>
-          </a>
+                        <p class="cutoff-textd" style="font-size: 0.95vw;">{{post.semidescription}}</p>
+                    </div>
+                </div>
+            </a>
         </div>
-      
+
         <div id="modalDisplay{{ forloop.counter }}" style="visibility: hidden;display: none;">
-          <div class="text-center">
-            <div class="textv">
-              <h1 style="font-size: 1.8vw; font-weight: 700; text-transform: uppercase;">{{post.title}}</h1>
+            <div class="text-center">
+                <div class="textv">
+                    <h1 style="font-size: 1.8vw; font-weight: 700; text-transform: uppercase;">{{post.title}}</h1>
+                </div>
+                <div class="textv">
+                    <h2 class="my-2 h5 text-muted">{{post.date|date:'F jS Y'}}</h2>
+                </div>
+                <img src="{{post.image.url}}" alt="{{post.title}}" class="img-fluid">
+                <div class="my-4 textv" style="font-size: 0.95vw;">
+                    {{post.description}}
+                </div>
             </div>
-            <div class="textv">
-              <h2 class="my-2 h5 text-muted">{{post.date|date:'F jS Y'}}</h2>
-            </div>
-            <img src="{{post.image.url}}" alt="{{post.title}}" class="img-fluid">
-            <div class="my-4 textv" style="font-size: 0.95vw;">
-              {{post.description}}
-            </div>
-          </div>
         </div>
-      
-      
+
+
         {% endfor %}
-      </div>
-      
-      
-      <!-- Modal para mostrar los detalles del post -->
-      <div class="modal fade" id="postDetailModal" tabindex="-1" role="dialog" aria-labelledby="postDetailModalLabel" aria-hidden="true">
+    </div>
+
+
+    <!-- Modal para mostrar los detalles del post -->
+    <div class="modal fade" id="postDetailModal" tabindex="-1" role="dialog" aria-labelledby="postDetailModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content" style="border-radius: 0;">
-            <div class="modal-body" style="width: 80vw; background: #fff;padding: 1.5vw;width: 100%;">
-              <!-- Contenido del post se cargará aquí dinámicamente -->
+            <div class="modal-content" style="border-radius: 0;">
+                <div class="modal-body" style="width: 80vw; background: #fff;padding: 1.5vw;width: 100%;">
+                    <!-- Contenido del post se cargará aquí dinámicamente -->
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button type="button" class="btnretro my-3 btn-lg rounded-0"
+                        id="prevModalBtn"><strong>&larr;</strong></button>
+                    <img src="{% static 'portfolio/JV01.gif'%}" alt="GIF animado" style="width: 4vw;" loading="lazy">
+                    <button type="button" class="btnretro my-3 btn-lg rounded-0"
+                        id="nextModalBtn"><strong>&rarr;</strong></button>
+                </div>
             </div>
-            <div class="modal-footer d-flex justify-content-center">
-              <button type="button" class="btnretro my-3 btn-lg rounded-0" id="prevModalBtn"><strong>&larr;</strong></button>
-                <img src="{% static 'portfolio/JV01.gif'%}" alt="GIF animado" style="width: 4vw;" loading="lazy">
-              <button type="button" class="btnretro my-3 btn-lg rounded-0" id="nextModalBtn"><strong>&rarr;</strong></button>
-            </div>
-          </div>
         </div>
-      </div>
+    </div>
 
 
     <!-- Carousel -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{% static 'postseffects.js' %}"></script>
-    <script src="{% static 'modalview.js' %}"></script> 
+    <script src="{% static 'modalview.js' %}"></script>
 
 
     <footer class="text-center" style="background-color: #fff; margin-top: 1.5vh;">
@@ -678,6 +684,44 @@
         window.addEventListener("resize", setMinHeight);
     </script>
     <!-- ------------------------------ -->
+
+    <!-- Mobile deployment -->
+    <script>
+        function adjustScreenStyle() {
+            // Check if the device is mobile
+            var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+            if (isMobile) {
+                // Request the browser to behave like a desktop site
+                var metaViewport = document.createElement('meta');
+                metaViewport.name = 'viewport';
+                metaViewport.content = 'width=device-width, initial-scale=0.1, maximum-scale=1.0, user-scalable=no';
+                document.head.appendChild(metaViewport);
+
+                // Identify and increase font size for certain elements
+                var elementsIncreaseFont = document.querySelectorAll('.enlarge-font');
+
+                elementsIncreaseFont.forEach(function (element) {
+                    // Double the font size
+                    var fontSize = window.getComputedStyle(element, null).getPropertyValue('font-size');
+                    var newFontSize = parseInt(fontSize) * 2 + 'px';
+                    element.style.fontSize = newFontSize;
+                });
+
+                document.addEventListener('touchstart', function () {
+                    metaViewport.content = 'width=device-width, initial-scale=0.1, maximum-scale=5.0, user-scalable=yes';
+                });
+            } else {
+                // Restore the original style for non-mobile devices
+                document.body.style.width = 'auto';
+                document.body.style.height = 'auto';
+            }
+        }
+
+        // Execute the function when the page is loaded
+        window.addEventListener('load', adjustScreenStyle);
+    </script>
+    <!-- ------------- -->
 
 </body>
 

@@ -1013,43 +1013,43 @@
     </script>
     <!-- ------------------------------ -->
 
-
+<!-- Mobile deployment -->
     <script>
         function adjustScreenStyle() {
-  // Check if the device is mobile
-  var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            // Check if the device is mobile
+            var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-  if (isMobile) {
-    // Request the browser to behave like a desktop site
-    var metaViewport = document.createElement('meta');
-    metaViewport.name = 'viewport';
-    metaViewport.content = 'width=device-width, initial-scale=0.1, maximum-scale=1.0, user-scalable=no';
-    document.head.appendChild(metaViewport);
+            if (isMobile) {
+                // Request the browser to behave like a desktop site
+                var metaViewport = document.createElement('meta');
+                metaViewport.name = 'viewport';
+                metaViewport.content = 'width=device-width, initial-scale=0.1, maximum-scale=1.0, user-scalable=no';
+                document.head.appendChild(metaViewport);
 
-    // Identify and increase font size for certain elements
-    var elementsIncreaseFont = document.querySelectorAll('.enlarge-font');
+                // Identify and increase font size for certain elements
+                var elementsIncreaseFont = document.querySelectorAll('.enlarge-font');
 
-    elementsIncreaseFont.forEach(function (element) {
-      // Double the font size
-      var fontSize = window.getComputedStyle(element, null).getPropertyValue('font-size');
-      var newFontSize = parseInt(fontSize) * 2 + 'px';
-      element.style.fontSize = newFontSize;
-    });
+                elementsIncreaseFont.forEach(function (element) {
+                    // Double the font size
+                    var fontSize = window.getComputedStyle(element, null).getPropertyValue('font-size');
+                    var newFontSize = parseInt(fontSize) * 2 + 'px';
+                    element.style.fontSize = newFontSize;
+                });
 
-    document.addEventListener('touchstart', function () {
-      metaViewport.content = 'width=device-width, initial-scale=0.1, maximum-scale=5.0, user-scalable=yes';
-    });
-  } else {
-    // Restore the original style for non-mobile devices
-    document.body.style.width = 'auto';
-    document.body.style.height = 'auto';
-  }
-}
+                document.addEventListener('touchstart', function () {
+                    metaViewport.content = 'width=device-width, initial-scale=0.1, maximum-scale=5.0, user-scalable=yes';
+                });
+            } else {
+                // Restore the original style for non-mobile devices
+                document.body.style.width = 'auto';
+                document.body.style.height = 'auto';
+            }
+        }
 
-// Execute the function when the page is loaded
-window.addEventListener('load', adjustScreenStyle);
+        // Execute the function when the page is loaded
+        window.addEventListener('load', adjustScreenStyle);
     </script>
-
+<!-- ------------- -->
 </body>
 
 </html>
