@@ -545,7 +545,7 @@
                 elementsIncreaseFont.forEach(function (element) {
                     // Double the font size
                     var fontSize = window.getComputedStyle(element, null).getPropertyValue('font-size');
-                    var newFontSize = parseInt(fontSize) * 2 + 'px';
+                    var newFontSize = parseInt(fontSize) * 0.5 + 'px';
                     element.style.fontSize = newFontSize;
                 });
 
