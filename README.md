@@ -36,6 +36,7 @@ Additionally, I've used static CSS files for styles and effects, as well as stat
 ## Technologies Used
 
 - Django
+- PostgreSQL (Database)
 - HTML
 - CSS
 - JavaScript
